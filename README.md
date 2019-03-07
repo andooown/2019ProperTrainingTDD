@@ -5,12 +5,16 @@
 
 ```
 $ cd 0_sample
-$ bundle install
-$ bundle exec rspec
-.......
+$ ruby spec/sample_spec.rb
+Run options: --seed 52890
 
-Finished in 0.00527 seconds (files took 0.10927 seconds to load)
-7 examples, 0 failures
+# Running:
+
+..
+
+Finished in 0.001042s, 1919.3858 runs/s, 1919.3858 assertions/s.
+
+2 runs, 2 assertions, 0 failures, 0 errors, 0 skips
 ```
 
 OK!!!!!!!!!!!!
