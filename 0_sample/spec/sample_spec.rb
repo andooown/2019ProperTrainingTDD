@@ -11,10 +11,10 @@ class SampleTest < Minitest::Test
   def test_twice
     # assertするメソッドはいくつかあるので
     # http://docs.seattlerb.org/minitest/Minitest/Assertions.html を参考に
-    assert_equal @sample.twice(3), 6
+    assert_equal 6, @sample.twice(3)
   end
 
   def test_plus3
-    assert_equal @sample.plus3(2), 5
+    assert_equal 5, @sample.plus3(2)
   end
 end
