@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require_relative '../../lib/email.rb'
+require_relative '../../lib/verifiers/quated_string_verifier.rb'
 
 class QuatedStringVerifierTest < Minitest::Test
   def setup
