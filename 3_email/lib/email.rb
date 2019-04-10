@@ -1,15 +1,52 @@
 class EmailVerifier
+  def initialize()
+    @domain_verifier = EmailDomainVerifier.new
+    @local_verifier = EmailLocalVerifier.new
+  end
 
   def execute(email)
     splited = email.split('@')
-    if splited.size == 2
-      raise ArgumentError
-    end
+    return false unless splited.size == 2
+
     domain, local = splited
+    @domain_verifier.execute(domain) && @local_verifier.execute(local)
+  end
+end
+
+class EmailDomainVerifier
+  def execute(domain)
+    [
+      d1(domain),
+      d2(domain),
+      d3(domain),
+      d4(domain),
+      d5(domain),
+    ].all?
   end
 
+  def d1(domain)
+    except = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!#$%&'*+-/=?^_`{|}~."
+    
+    domain.chars.to_a.all? {|c| except.include?(c) }
+  end
 
+  def d2(domain)
+    !domain.start_with?('.')
+  end
+
+  def d3(domain)
+    !domain.end_with?('.')
+  end
+
+  def d4(domain)
+    !domain.include?("..")
+  end
+
+  def d5(domain)
+    domain.size >= 1
+  end
 end
+
 
 class EmailLocalVerifier
 

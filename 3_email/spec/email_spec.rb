@@ -8,11 +8,13 @@ class EmailVerifierTest < Minitest::Test
   end
 
   def test_email
-    # assert @verifier.execute('abc@example.com')
-    # assert !@verifier.execute('a..bc@example.com')
+    # p @verifier.execute('abc@example.com')
+    assert @verifier.execute('abc@example.com')
+    assert !@verifier.execute('a..bc@example.com')
 
     # LD5
-    # assert !@verifier.execute('@example.com')
+    assert !@verifier.execute('@example.com')
+    assert !@verifier.execute('asdf@ex@ample.com')
   end
 
 end
