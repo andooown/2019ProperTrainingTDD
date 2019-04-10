@@ -49,3 +49,4 @@ class DotAtomVerifierTest < Minitest::Test
   end
 
 end
+
