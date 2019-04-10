@@ -21,10 +21,8 @@ class EmailLocalVerifier
   end
 
   def execute(local)
-    @verifiers.any {|verifier| verifier.execute(local) }
+    @verifiers.any? {|verifier| verifier.execute(local) }
   end
-
-
 end
 
 class DotAtomVerifier
