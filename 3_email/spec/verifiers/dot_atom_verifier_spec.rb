@@ -1,26 +1,9 @@
 require 'minitest/autorun'
-require_relative '../lib/email.rb'
 
-class EmailVerifierTest < Minitest::Test
-  # 各テスト開始時に一度呼ばれる
-  def setup
-    @verifier = EmailVerifier.new
-  end
-
-  def test_email
-    # p @verifier.execute('abc@example.com')
-    assert @verifier.execute('abc@example.com')
-    assert !@verifier.execute('a..bc@example.com')
-
-    # LD5
-    assert !@verifier.execute('@example.com')
-    assert !@verifier.execute('asdf@ex@ample.com')
-  end
-
-end
+require 'minitest/autorun'
+require_relative '../../lib/verifiers/dot_atom_verifier.rb'
 
 class DotAtomVerifierTest < Minitest::Test
-
   def setup
     @verifier = DotAtomVerifier.new
   end
@@ -51,4 +34,3 @@ class DotAtomVerifierTest < Minitest::Test
   end
 
 end
-

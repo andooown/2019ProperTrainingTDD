@@ -1,5 +1,7 @@
 require 'minitest/autorun'
-require_relative '../../lib/email.rb'
+
+require 'minitest/autorun'
+require_relative '../../lib/verifiers/domain_verifier.rb'
 
 class EmailDomainVerifierTest < Minitest::Test
   def setup
